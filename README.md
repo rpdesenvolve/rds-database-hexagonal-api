@@ -24,7 +24,6 @@ This project showcases how to:
 | Architecture  | Hexagonal (Ports and Adapters)     |
 | Database      | PostgreSQL (Amazon RDS)            |
 | Build Tool    | Maven                              |
-| API Docs      | Postman Collection (v2.1)          |
 | Testing       | JUnit 5 + Mockito                  |
 | ORM           | JPA / Hibernate                    |
 
