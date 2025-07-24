@@ -30,29 +30,6 @@ This project showcases how to:
 
 ---
 
-## ⚙️ Architecture Overview
-
-This project follows the **Hexagonal Architecture (Clean Architecture)** principle:
-
-```txt
-               [ Postman / HTTP Clients ]
-                         ↓
-                [ Controller Layer ]
-                         ↓
-         [ Application Layer - Use Cases ]
-                         ↓
-        [ Domain Layer - Entities, Ports ]
-                         ↓
-         [ Infrastructure Layer - DB, RDS ]
-```
-
-- **Domain:** Contains the `User` entity
-- **Application:** Contains `UserService` business logic
-- **Adapters (Inbound):** REST controller
-- **Adapters (Outbound):** PostgreSQL via Spring Data JPA
-
----
-
 ## ☁️ Amazon RDS (PostgreSQL)
 
 This project connects directly to a managed PostgreSQL instance provisioned via Amazon RDS.
@@ -133,9 +110,10 @@ src
 ├── adapters
 │   └── input
 │       └── rest
-│           ├── UserController.java
-│           └── dto
-│               └── UserRequestDto.java
+│           └── UserController.java
+│   └── output
+│       └── DataUserRepository.java
+|       └── UserRepositoryAdapter.java
 ├── application
 │   └── service
 │       └── UserService.java

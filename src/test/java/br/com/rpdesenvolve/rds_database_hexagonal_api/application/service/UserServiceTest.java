@@ -1,7 +1,7 @@
 package br.com.rpdesenvolve.rds_database_hexagonal_api.application.service;
 
 import br.com.rpdesenvolve.rds_database_hexagonal_api.domain.model.User;
-import br.com.rpdesenvolve.rds_database_hexagonal_api.domain.port.UserRepositoryPort;
+import br.com.rpdesenvolve.rds_database_hexagonal_api.infrastructure.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,13 +15,13 @@ import static org.mockito.Mockito.when;
 
 public class UserServiceTest {
 
-    private UserRepositoryPort userRepositoryPort;
+    private UserRepository userRepository;
     private UserService userService;
 
     @BeforeEach
     void setUp() {
-        userRepositoryPort = mock(UserRepositoryPort.class);
-        userService = new UserService(userRepositoryPort);
+        userRepository = mock(UserRepository.class);
+        userService = new UserService(userRepository);
     }
 
     @Test
@@ -35,7 +35,7 @@ public class UserServiceTest {
         saved.setName("Ricardo");
         saved.setEmail("ricardo@example.com");
 
-        when(userRepositoryPort.save(input)).thenReturn(saved);
+        when(userRepository.save(input)).thenReturn(saved);
 
         User result = userService.createUser(input);
 
@@ -55,7 +55,7 @@ public class UserServiceTest {
         user2.setId(2L);
         user2.setName("João");
 
-        when(userRepositoryPort.findAll()).thenReturn(Arrays.asList(user1, user2));
+        when(userRepository.findAll()).thenReturn(Arrays.asList(user1, user2));
 
         List<User> users = userService.getAllUsers();
 

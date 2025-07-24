@@ -1,4 +1,4 @@
-package br.com.rpdesenvolve.rds_database_hexagonal_api.adapters.input;
+package br.com.rpdesenvolve.rds_database_hexagonal_api.adapters.input.rest;
 
 import br.com.rpdesenvolve.rds_database_hexagonal_api.application.service.UserService;
 import br.com.rpdesenvolve.rds_database_hexagonal_api.domain.model.User;

@@ -1,7 +1,7 @@
 package br.com.rpdesenvolve.rds_database_hexagonal_api.config;
 
 import br.com.rpdesenvolve.rds_database_hexagonal_api.adapters.output.UserRepositoryAdapter;
-import br.com.rpdesenvolve.rds_database_hexagonal_api.domain.port.UserRepositoryPort;
+import br.com.rpdesenvolve.rds_database_hexagonal_api.infrastructure.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public UserRepositoryPort userRepositoryPort(UserRepositoryAdapter adapter) {
+    public UserRepository userRepository(UserRepositoryAdapter adapter) {
         return adapter;
     }
 }
